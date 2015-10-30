@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AnimaisAPI</name>
+    </assembly>
+    <members>
+        <member name="M:AnimaisAPI.AppCode.WebApiFilters.AuthenticationFilterAttribute.getClientIp(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Adquire o enderço de IP do cliente de chamada atual.
+            </summary>
+            <param name="context">Contexto de requisição do cliente atual.</param>
+            <returns>O endereço IP do cliente.</returns>
+        </member>
+        <member name="T:AnimaisAPI.AppCode.Constants">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:AnimaisAPI.AppCode.Constants.AuthenticationTokenKey">
+            <summary>
+            Nome da chave do token de autenticação.
+            </summary>
+        </member>
+        <member name="F:AnimaisAPI.AppCode.Constants.AuthenticationTokenName">
+            <summary>
+            Nome do token de autenticação.
+            </summary>
+        </member>
+        <member name="F:AnimaisAPI.AppCode.Constants.AuthenticationTokenValue">
+            <summary>
+            Valor padrão do token da api.
+            </summary>
+        </member>
+        <member name="T:AnimaisAPI.RouteConfig">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AnimaisAPI.RouteConfig.RegisterRoutes(System.Web.Routing.RouteCollection)">
+            <summary>
+            </summary>
+            <param name="routes"></param>
+        </member>
+        <member name="M:AnimaisAPI.Controllers.DefaultController.Authorize">
+            <summary>
+                Método simples para efetuar autenticação na api de testes.
+            </summary>
+        </member>
+        <member name="M:AnimaisAPI.Controllers.DefaultController.Get">
+            <summary>
+                Exemplo básico de get.
+            </summary>
+            <returns>Retorna alguns valores.</returns>
+        </member>
+        <member name="M:AnimaisAPI.Controllers.DefaultController.Post(System.String)">
+            <summary>
+                Exemplo básico de post.
+            </summary>
+            <param name="value">Valor default.</param>
+        </member>
+        <member name="M:AnimaisAPI.Controllers.DefaultController.Put(System.String)">
+            <summary>
+                Exemplo básico de put.
+            </summary>
+            <param name="value">Valor padrão.</param>
+        </member>
+        <member name="M:AnimaisAPI.Controllers.DefaultController.Delete(System.String)">
+            <summary>
+                Exemplo básico de delete.
+            </summary>
+            <param name="value">Valor padrão.</param>
+        </member>
+        <member name="T:AnimaisAPI.Global">
+            <summary>
+            </summary>
+        </member>
+    </members>
+</doc>
