@@ -14,15 +14,18 @@ namespace AnimaisAPI.Controllers
     public class AnimalsController : ApiController
     {
         [HttpGet, Route("GetAllAnimals")]
-        public string GetAllAnimals() {
-            return "todos os bixos";            
+        public string GetAllAnimals()
+        {
+            return "todos os bixos";
         }
 
         [HttpPost, Route("GetAllStates")]
-        public List<EstadoAnimalViewModel> GetAllStates() {
+        public List<EstadoAnimalViewModel> GetAllStates()
+        {
             List<EstadoAnimalViewModel> listaViewModel;
 
-            using (animalsDataModel.Model.SaveAPetEntities edmx = new animalsDataModel.Model.SaveAPetEntities()) {
+            using (animalsDataModel.Model.SaveAPetEntities edmx = new animalsDataModel.Model.SaveAPetEntities())
+            {
                 List<animalsDataModel.Model.EstadoAnimal> listaEntity = edmx.EstadoAnimal.ToList();
                 listaViewModel = AutoMapper.Mapper.Map<List<EstadoAnimalViewModel>>(listaEntity);
             }
@@ -59,8 +62,15 @@ namespace AnimaisAPI.Controllers
         }
 
         [HttpPost, Route("SavePetLocation")]
-        public void SavePetLocation(RegistroAnimalViewModel savePetViewModel) {
+        public void SavePetLocation(RegistroAnimalViewModel registroViewModel)
+        {
+            using (animalsDataModel.Model.SaveAPetEntities edmx = new animalsDataModel.Model.SaveAPetEntities())
+            {
+                animalsDataModel.Model.RegistroAnimal registroEntity = AutoMapper.Mapper.Map<animalsDataModel.Model.RegistroAnimal>(registroViewModel);
 
+                edmx.RegistroAnimal.Add(registroEntity);
+                edmx.SaveChanges();
+            }
         }
     }
 }
