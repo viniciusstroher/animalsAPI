@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimaisAPI.Enums
 {
-    public enum AnimalTypes
+    public enum AnimalType
     {
         Dog = 1,
         Cat = 2,

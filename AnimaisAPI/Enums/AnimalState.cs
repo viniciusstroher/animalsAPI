@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimaisAPI.Enums
 {
-    public enum AnimalHealthStatus
+    public enum AnimalState
     {
         Hungry = 1,
         Sick = 2,

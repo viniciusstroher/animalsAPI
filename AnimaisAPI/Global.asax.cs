@@ -25,6 +25,8 @@ namespace AnimaisAPI
 #if DEBUG
             SwaggerConfig.Register();
 #endif
+
+            AppCode.AutoMapperConfig.Register();
         }
     }
 }
