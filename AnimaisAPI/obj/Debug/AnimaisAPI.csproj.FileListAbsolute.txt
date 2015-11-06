@@ -44,7 +44,6 @@ C:\Projetos\GIT\animalsAPI\AnimaisAPI\bin\System.Web.Optimization.xml
 C:\Projetos\GIT\animalsAPI\AnimaisAPI\obj\Debug\AnimaisAPI.csprojResolveAssemblyReference.cache
 C:\Projetos\GIT\animalsAPI\AnimaisAPI\obj\Debug\AnimaisAPI.dll
 C:\Projetos\GIT\animalsAPI\AnimaisAPI\obj\Debug\AnimaisAPI.pdb
-C:\Projetos\GIT\animalsAPI\animalsAPI\AnimaisAPI\bin\AnimaisAPI.dll.config
 C:\Projetos\GIT\animalsAPI\animalsAPI\AnimaisAPI\bin\AnimaisAPI.XML
 C:\Projetos\GIT\animalsAPI\animalsAPI\AnimaisAPI\bin\AnimaisAPI.dll
 C:\Projetos\GIT\animalsAPI\animalsAPI\AnimaisAPI\bin\AnimaisAPI.pdb

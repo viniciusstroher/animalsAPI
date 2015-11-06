@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimaisAPI", "AnimaisAPI\AnimaisAPI.csproj", "{35F988C0-D47B-4AD0-AAA0-858A41E8EF0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animalsDataModel", "animalsDataModel\animalsDataModel.csproj", "{54DBF733-9117-483B-A745-02D26B3C7538}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +15,10 @@ Global
 		{35F988C0-D47B-4AD0-AAA0-858A41E8EF0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35F988C0-D47B-4AD0-AAA0-858A41E8EF0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35F988C0-D47B-4AD0-AAA0-858A41E8EF0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54DBF733-9117-483B-A745-02D26B3C7538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54DBF733-9117-483B-A745-02D26B3C7538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54DBF733-9117-483B-A745-02D26B3C7538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54DBF733-9117-483B-A745-02D26B3C7538}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
