@@ -10,13 +10,21 @@ using animalsDataModel;
 namespace AnimaisAPI.Controllers
 {
     //ToDo: Implementar Controller oficialmente
-    //ToDo: Integrar com banco de dados
+    //ToDo: Utilizar RetornoViewModel como padrão
     public class AnimalsController : ApiController
     {
-        [HttpGet, Route("GetAllAnimals")]
-        public string GetAllAnimals()
+        [HttpGet, Route("GetAllTags")]
+        public List<RegistroAnimalViewModel> GetAllTags()
         {
-            return "todos os bixos";
+            List<RegistroAnimalViewModel> listaViewModel;
+
+            using (animalsDataModel.Model.SaveAPetEntities edmx = new animalsDataModel.Model.SaveAPetEntities())
+            {
+                List<animalsDataModel.Model.RegistroAnimal> listaEntity = edmx.RegistroAnimal.ToList();
+                listaViewModel = AutoMapper.Mapper.Map<List<RegistroAnimalViewModel>>(listaEntity);
+            }
+
+            return listaViewModel;
         }
 
         [HttpPost, Route("GetAllStates")]
@@ -62,14 +70,48 @@ namespace AnimaisAPI.Controllers
         }
 
         [HttpPost, Route("SavePetLocation")]
-        public void SavePetLocation(RegistroAnimalViewModel registroViewModel)
+        public bool SavePetLocation(RegistroAnimalViewModel registroViewModel)
         {
-            using (animalsDataModel.Model.SaveAPetEntities edmx = new animalsDataModel.Model.SaveAPetEntities())
+            try
             {
-                animalsDataModel.Model.RegistroAnimal registroEntity = AutoMapper.Mapper.Map<animalsDataModel.Model.RegistroAnimal>(registroViewModel);
+                using (animalsDataModel.Model.SaveAPetEntities edmx = new animalsDataModel.Model.SaveAPetEntities())
+                {
+                    animalsDataModel.Model.RegistroAnimal registroEntity = AutoMapper.Mapper.Map<animalsDataModel.Model.RegistroAnimal>(registroViewModel);
 
-                edmx.RegistroAnimal.Add(registroEntity);
-                edmx.SaveChanges();
+                    edmx.RegistroAnimal.Add(registroEntity);
+                    edmx.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex) {
+                return false;
+            }
+        }
+
+        [HttpPost, Route("UpdatePetLocation")]
+        public bool UpdatePetLocation(RegistroAnimalViewModel registroViewModel) {
+            try
+            {
+                using (animalsDataModel.Model.SaveAPetEntities edmx = new animalsDataModel.Model.SaveAPetEntities())
+                {
+                    animalsDataModel.Model.RegistroAnimal tag = edmx.RegistroAnimal.FirstOrDefault(o => o.IdRegistroAnimal == registroViewModel.IdRegistroAnimal);
+
+                    if (tag == null)
+                        return false;
+
+                    tag.Descricao = registroViewModel.Descricao;
+                    tag.IdEstadoAnimal = registroViewModel.IdEstadoAnimal;
+                    tag.IdSituacaoAnimal = registroViewModel.IdSituacaoAnimal;
+                    tag.Latitude = (decimal)registroViewModel.Latitude;
+                    tag.Longitude = (decimal)registroViewModel.Longitude;
+
+                    edmx.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }

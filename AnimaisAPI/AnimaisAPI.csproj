@@ -170,6 +170,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\EstadoAnimalViewModel.cs" />
     <Compile Include="ViewModels\RegistroAnimalViewModel.cs" />
+    <Compile Include="ViewModels\RetornoViewModel.cs" />
     <Compile Include="ViewModels\SituacaoAnimalViewModel.cs" />
     <Compile Include="ViewModels\TipoAnimalViewModel.cs" />
   </ItemGroup>
