@@ -184,6 +184,7 @@
     <Content Include="Content\fonts\droid-sans-v6-latin-regular.ttf" />
     <Content Include="Content\fonts\droid-sans-v6-latin-regular.woff" />
     <Content Include="Content\fonts\droid-sans-v6-latin-regular.woff2" />
+    <None Include="Properties\PublishProfiles\Prod.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
