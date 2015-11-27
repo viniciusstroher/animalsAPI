@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SaveAPetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EstadoAnimal">
+    <Key>
+      <PropertyRef Name="IdEstadoAnimal" />
+    </Key>
+    <Property Name="IdEstadoAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="RegistroAnimal">
+    <Key>
+      <PropertyRef Name="IdRegistroAnimal" />
+    </Key>
+    <Property Name="IdRegistroAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoAnimal" Type="int" Nullable="false" />
+    <Property Name="IdEstadoAnimal" Type="int" Nullable="false" />
+    <Property Name="IdSituacaoAnimal" Type="int" Nullable="false" />
+    <Property Name="Descricao" Type="varchar" MaxLength="500" />
+    <Property Name="Latitude" Type="decimal" Precision="10" Scale="7" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="10" Scale="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SituacaoAnimal">
+    <Key>
+      <PropertyRef Name="IdSituacaoAnimal" />
+    </Key>
+    <Property Name="IdSituacaoAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TipoAnimal">
+    <Key>
+      <PropertyRef Name="IdTipoAnimal" />
+    </Key>
+    <Property Name="IdTipoAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <Association Name="FK__RegistroA__IdEst__173876EA">
+    <End Role="EstadoAnimal" Type="Self.EstadoAnimal" Multiplicity="1" />
+    <End Role="RegistroAnimal" Type="Self.RegistroAnimal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoAnimal">
+        <PropertyRef Name="IdEstadoAnimal" />
+      </Principal>
+      <Dependent Role="RegistroAnimal">
+        <PropertyRef Name="IdEstadoAnimal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroA__IdSit__182C9B23">
+    <End Role="SituacaoAnimal" Type="Self.SituacaoAnimal" Multiplicity="1" />
+    <End Role="RegistroAnimal" Type="Self.RegistroAnimal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SituacaoAnimal">
+        <PropertyRef Name="IdSituacaoAnimal" />
+      </Principal>
+      <Dependent Role="RegistroAnimal">
+        <PropertyRef Name="IdSituacaoAnimal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RegistroA__IdTip__164452B1">
+    <End Role="TipoAnimal" Type="Self.TipoAnimal" Multiplicity="1" />
+    <End Role="RegistroAnimal" Type="Self.RegistroAnimal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAnimal">
+        <PropertyRef Name="IdTipoAnimal" />
+      </Principal>
+      <Dependent Role="RegistroAnimal">
+        <PropertyRef Name="IdTipoAnimal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SaveAPetModelStoreContainer">
+    <EntitySet Name="EstadoAnimal" EntityType="Self.EstadoAnimal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegistroAnimal" EntityType="Self.RegistroAnimal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SituacaoAnimal" EntityType="Self.SituacaoAnimal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoAnimal" EntityType="Self.TipoAnimal" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__RegistroA__IdEst__173876EA" Association="Self.FK__RegistroA__IdEst__173876EA">
+      <End Role="EstadoAnimal" EntitySet="EstadoAnimal" />
+      <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroA__IdSit__182C9B23" Association="Self.FK__RegistroA__IdSit__182C9B23">
+      <End Role="SituacaoAnimal" EntitySet="SituacaoAnimal" />
+      <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RegistroA__IdTip__164452B1" Association="Self.FK__RegistroA__IdTip__164452B1">
+      <End Role="TipoAnimal" EntitySet="TipoAnimal" />
+      <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

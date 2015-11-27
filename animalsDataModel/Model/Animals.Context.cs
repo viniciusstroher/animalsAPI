@@ -18,8 +18,10 @@ namespace animalsDataModel.Model
         public SaveAPetEntities()
             : base("name=SaveAPetEntities")
         {
+            Database.SetInitializer<SaveAPetEntities>(new SaveAPetEntitiesDBInitializer());
+
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SaveAPetModelStoreContainer" CdmEntityContainer="SaveAPetEntities">
+    <EntitySetMapping Name="EstadoAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.EstadoAnimal)">
+        <MappingFragment StoreEntitySet="EstadoAnimal">
+          <ScalarProperty Name="IdEstadoAnimal" ColumnName="IdEstadoAnimal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistroAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.RegistroAnimal)">
+        <MappingFragment StoreEntitySet="RegistroAnimal">
+          <ScalarProperty Name="IdRegistroAnimal" ColumnName="IdRegistroAnimal" />
+          <ScalarProperty Name="IdTipoAnimal" ColumnName="IdTipoAnimal" />
+          <ScalarProperty Name="IdEstadoAnimal" ColumnName="IdEstadoAnimal" />
+          <ScalarProperty Name="IdSituacaoAnimal" ColumnName="IdSituacaoAnimal" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SituacaoAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.SituacaoAnimal)">
+        <MappingFragment StoreEntitySet="SituacaoAnimal">
+          <ScalarProperty Name="IdSituacaoAnimal" ColumnName="IdSituacaoAnimal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.TipoAnimal)">
+        <MappingFragment StoreEntitySet="TipoAnimal">
+          <ScalarProperty Name="IdTipoAnimal" ColumnName="IdTipoAnimal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

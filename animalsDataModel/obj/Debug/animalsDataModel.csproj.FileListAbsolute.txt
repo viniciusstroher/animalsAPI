@@ -1,0 +1,10 @@
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\bin\Debug\animalsDataModel.dll.config
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\bin\Debug\animalsDataModel.dll
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\bin\Debug\animalsDataModel.pdb
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\bin\Debug\EntityFramework.dll
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\bin\Debug\EntityFramework.xml
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\obj\Debug\animalsDataModel.csprojResolveAssemblyReference.cache
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\obj\Debug\animalsDataModel.dll
+C:\Users\Vinicius\Desktop\animalsAPI\animalsDataModel\obj\Debug\animalsDataModel.pdb

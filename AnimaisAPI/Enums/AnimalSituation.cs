@@ -8,11 +8,15 @@ namespace AnimaisAPI.Enums
 {
     public enum AnimalSituation
     {
-        Tagged = 1,
-        BeingRescued = 2,
-        NotFound = 3,
-        AlreadyAssisted = 4,
-        Dead = 5,
-        Other = 6
+        
+        GotTagged = 1,
+        GotFood = 2,
+        GotAid = 3,
+        GotAssistence = 4,
+        GotShipped = 5,
+        GotStress = 6,
+        NotFound = 7
+
+        
     }
 }

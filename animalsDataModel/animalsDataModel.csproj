@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Animals.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -68,6 +69,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Animals.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\EstadoAnimalEnum.cs">
+      <DependentUpon>Animals.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SaveAPetEntitiesDBInitializer.cs" />
     <Compile Include="Model\EstadoAnimal.cs">
       <DependentUpon>Animals.tt</DependentUpon>
     </Compile>
@@ -99,15 +104,18 @@
       <DependentUpon>Animals.edmx</DependentUpon>
       <LastGenOutput>Animals.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Model\Animals.edmx.sql" />
     <Content Include="Model\Animals.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Animals.edmx</DependentUpon>
       <LastGenOutput>Animals.cs</LastGenOutput>
     </Content>
+    <Content Include="PopulaDB.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

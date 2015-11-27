@@ -4,61 +4,43 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SaveAPetModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="SaveAPetModelStoreContainer">
-          <EntitySet Name="EstadoAnimal" EntityType="SaveAPetModel.Store.EstadoAnimal" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="RegistroAnimal" EntityType="SaveAPetModel.Store.RegistroAnimal" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SituacaoAnimal" EntityType="SaveAPetModel.Store.SituacaoAnimal" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TipoAnimal" EntityType="SaveAPetModel.Store.TipoAnimal" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK__RegistroA__IdEst__173876EA" Association="SaveAPetModel.Store.FK__RegistroA__IdEst__173876EA">
-            <End Role="EstadoAnimal" EntitySet="EstadoAnimal" />
-            <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RegistroA__IdSit__182C9B23" Association="SaveAPetModel.Store.FK__RegistroA__IdSit__182C9B23">
-            <End Role="SituacaoAnimal" EntitySet="SituacaoAnimal" />
-            <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RegistroA__IdTip__164452B1" Association="SaveAPetModel.Store.FK__RegistroA__IdTip__164452B1">
-            <End Role="TipoAnimal" EntitySet="TipoAnimal" />
-            <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="SaveAPetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EstadoAnimal">
           <Key>
             <PropertyRef Name="IdEstadoAnimal" />
           </Key>
-          <Property Name="IdEstadoAnimal" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstadoAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="RegistroAnimal">
           <Key>
             <PropertyRef Name="IdRegistroAnimal" />
           </Key>
-          <Property Name="IdRegistroAnimal" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdRegistroAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdTipoAnimal" Type="int" Nullable="false" />
           <Property Name="IdEstadoAnimal" Type="int" Nullable="false" />
           <Property Name="IdSituacaoAnimal" Type="int" Nullable="false" />
           <Property Name="Descricao" Type="varchar" MaxLength="500" />
-          <Property Name="Latitude" Type="numeric" Nullable="false" Precision="10" Scale="7" />
-          <Property Name="Longitude" Type="numeric" Nullable="false" Precision="10" Scale="7" />
+          <Property Name="Latitude" Type="decimal" Precision="10" Scale="7" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="10" Scale="7" Nullable="false" />
         </EntityType>
         <EntityType Name="SituacaoAnimal">
           <Key>
             <PropertyRef Name="IdSituacaoAnimal" />
           </Key>
-          <Property Name="IdSituacaoAnimal" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdSituacaoAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="TipoAnimal">
           <Key>
             <PropertyRef Name="IdTipoAnimal" />
           </Key>
-          <Property Name="IdTipoAnimal" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoAnimal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nome" Type="varchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK__RegistroA__IdEst__173876EA">
-          <End Role="EstadoAnimal" Type="SaveAPetModel.Store.EstadoAnimal" Multiplicity="1" />
-          <End Role="RegistroAnimal" Type="SaveAPetModel.Store.RegistroAnimal" Multiplicity="*" />
+          <End Role="EstadoAnimal" Type="Self.EstadoAnimal" Multiplicity="1" />
+          <End Role="RegistroAnimal" Type="Self.RegistroAnimal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EstadoAnimal">
               <PropertyRef Name="IdEstadoAnimal" />
@@ -69,8 +51,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__RegistroA__IdSit__182C9B23">
-          <End Role="SituacaoAnimal" Type="SaveAPetModel.Store.SituacaoAnimal" Multiplicity="1" />
-          <End Role="RegistroAnimal" Type="SaveAPetModel.Store.RegistroAnimal" Multiplicity="*" />
+          <End Role="SituacaoAnimal" Type="Self.SituacaoAnimal" Multiplicity="1" />
+          <End Role="RegistroAnimal" Type="Self.RegistroAnimal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SituacaoAnimal">
               <PropertyRef Name="IdSituacaoAnimal" />
@@ -81,8 +63,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__RegistroA__IdTip__164452B1">
-          <End Role="TipoAnimal" Type="SaveAPetModel.Store.TipoAnimal" Multiplicity="1" />
-          <End Role="RegistroAnimal" Type="SaveAPetModel.Store.RegistroAnimal" Multiplicity="*" />
+          <End Role="TipoAnimal" Type="Self.TipoAnimal" Multiplicity="1" />
+          <End Role="RegistroAnimal" Type="Self.RegistroAnimal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoAnimal">
               <PropertyRef Name="IdTipoAnimal" />
@@ -92,8 +74,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityContainer Name="SaveAPetModelStoreContainer">
+          <EntitySet Name="EstadoAnimal" EntityType="Self.EstadoAnimal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistroAnimal" EntityType="Self.RegistroAnimal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SituacaoAnimal" EntityType="Self.SituacaoAnimal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoAnimal" EntityType="Self.TipoAnimal" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__RegistroA__IdEst__173876EA" Association="Self.FK__RegistroA__IdEst__173876EA">
+            <End Role="EstadoAnimal" EntitySet="EstadoAnimal" />
+            <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroA__IdSit__182C9B23" Association="Self.FK__RegistroA__IdSit__182C9B23">
+            <End Role="SituacaoAnimal" EntitySet="SituacaoAnimal" />
+            <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RegistroA__IdTip__164452B1" Association="Self.FK__RegistroA__IdTip__164452B1">
+            <End Role="TipoAnimal" EntitySet="TipoAnimal" />
+            <End Role="RegistroAnimal" EntitySet="RegistroAnimal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SaveAPetModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -190,52 +189,55 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EnumType Name="EstadoAnimalEnum">
+          <Member Name="doente" Value="1" />
+          <Member Name="bravo" Value="2" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SaveAPetModelStoreContainer" CdmEntityContainer="SaveAPetEntities">
-          <EntitySetMapping Name="EstadoAnimal">
-            <EntityTypeMapping TypeName="SaveAPetModel.EstadoAnimal">
-              <MappingFragment StoreEntitySet="EstadoAnimal">
-                <ScalarProperty Name="IdEstadoAnimal" ColumnName="IdEstadoAnimal" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RegistroAnimal">
-            <EntityTypeMapping TypeName="SaveAPetModel.RegistroAnimal">
-              <MappingFragment StoreEntitySet="RegistroAnimal">
-                <ScalarProperty Name="IdRegistroAnimal" ColumnName="IdRegistroAnimal" />
-                <ScalarProperty Name="IdTipoAnimal" ColumnName="IdTipoAnimal" />
-                <ScalarProperty Name="IdEstadoAnimal" ColumnName="IdEstadoAnimal" />
-                <ScalarProperty Name="IdSituacaoAnimal" ColumnName="IdSituacaoAnimal" />
-                <ScalarProperty Name="Descricao" ColumnName="Descricao" />
-                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
-                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SituacaoAnimal">
-            <EntityTypeMapping TypeName="SaveAPetModel.SituacaoAnimal">
-              <MappingFragment StoreEntitySet="SituacaoAnimal">
-                <ScalarProperty Name="IdSituacaoAnimal" ColumnName="IdSituacaoAnimal" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TipoAnimal">
-            <EntityTypeMapping TypeName="SaveAPetModel.TipoAnimal">
-              <MappingFragment StoreEntitySet="TipoAnimal">
-                <ScalarProperty Name="IdTipoAnimal" ColumnName="IdTipoAnimal" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SaveAPetModelStoreContainer" CdmEntityContainer="SaveAPetEntities">
+    <EntitySetMapping Name="EstadoAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.EstadoAnimal)">
+        <MappingFragment StoreEntitySet="EstadoAnimal">
+          <ScalarProperty Name="IdEstadoAnimal" ColumnName="IdEstadoAnimal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistroAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.RegistroAnimal)">
+        <MappingFragment StoreEntitySet="RegistroAnimal">
+          <ScalarProperty Name="IdRegistroAnimal" ColumnName="IdRegistroAnimal" />
+          <ScalarProperty Name="IdTipoAnimal" ColumnName="IdTipoAnimal" />
+          <ScalarProperty Name="IdEstadoAnimal" ColumnName="IdEstadoAnimal" />
+          <ScalarProperty Name="IdSituacaoAnimal" ColumnName="IdSituacaoAnimal" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SituacaoAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.SituacaoAnimal)">
+        <MappingFragment StoreEntitySet="SituacaoAnimal">
+          <ScalarProperty Name="IdSituacaoAnimal" ColumnName="IdSituacaoAnimal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoAnimal">
+      <EntityTypeMapping TypeName="IsTypeOf(SaveAPetModel.TipoAnimal)">
+        <MappingFragment StoreEntitySet="TipoAnimal">
+          <ScalarProperty Name="IdTipoAnimal" ColumnName="IdTipoAnimal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -247,9 +249,10 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

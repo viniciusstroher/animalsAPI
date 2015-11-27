@@ -8,9 +8,11 @@ namespace AnimaisAPI.Enums
 {
     public enum AnimalState
     {
-        Hungry = 1,
-        Sick = 2,
-        Scared = 3,
-        Angry = 4
+        Fome = 1,
+        Doente = 2,
+        Assustado = 3,
+        Raivoso = 4
+
+       
     }
 }

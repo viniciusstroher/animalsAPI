@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Web.Http;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -11,6 +12,8 @@ namespace AnimaisAPI
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+           
+
             GlobalConfiguration.Configure(config =>
             {
                 config.MapHttpAttributeRoutes();
@@ -25,7 +28,7 @@ namespace AnimaisAPI
 #if DEBUG
             SwaggerConfig.Register();
 #endif
-
+           
             AppCode.AutoMapperConfig.Register();
         }
     }
